@@ -100,4 +100,7 @@ These two main notebooks cover a different stage of the analysis pipeline.
 - Python 3.x  
 - Pandas & NumPy for data processing  
 - Matplotlib & Seaborn for visualization  
-- OpenPyXL / XlsxWriter for Excel report automation  
+- OpenPyXL / XlsxWriter for Excel report automation
+
+
+👉 **[See this project in a product point of view](https://github.com/chia-chang/pm-portfolio/blob/main/covid-automation-product.md)** – data product for internal stakeholders, research partners, and public dashboards
