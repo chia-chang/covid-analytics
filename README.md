@@ -1,4 +1,4 @@
-# Python Portfolio: COVID Analytics Automation
+# Python Portfolio: COVID Analytics
 Recreating the automation work I built at IBM that cut COVID-19 reporting time by 80% (3-4 hours → 15 minutes).
 Note: This is a recreation of my work at IBM using synthetically generated data. No proprietary IBM information included.
 
