@@ -1,10 +1,24 @@
-# Python Portfolio: COVID Analytics
-Recreating the automation work I built at IBM that cut COVID-19 reporting time by 80% (3-4 hours → 15 minutes).
+# COVID Analytics
+Recreating the analytics system I built at IBM that cut COVID-19 reporting time by 80% (3–4 hours → 15 minutes) — while ensuring the right metrics reached the right decision-makers, every day.
 Note: This is a recreation of my work at IBM using synthetically generated data. No proprietary IBM information included.
 
 ## Overview
-During my time at IBM, I built an end-to-end analytics system that automated COVID-19 data reporting—from data cleaning and integration to metric calculation and report generation.
-This portfolio project recreates that system to demonstrate my approach to solving real business problems: identifying inefficiencies, designing comprehensive solutions, and delivering measurable impact through automation.
+During my time at IBM, I built an end-to-end analytics system that automated COVID-19 data reporting, from data cleaning and integration to metric calculation and report generation serving **100K+** daily users across **50+** public health organizations.
+The technical challenge was real, but the harder problem was analytical: **figuring out which metrics actually mattered for decision-making**, and making sure those metrics were delivered reliably and on time.
+This portfolio project recreates that system to demonstrate both sides of that work.
+
+## Analytical Decisions
+Before writing a single line of code, the more important work was deciding what to measure and why. These choices shaped everything downstream.
+**Why positivity rate, not just case counts**
+Raw case counts are misleading without context. A spike in cases means something very different if testing volume doubled that week. Tracking positivity rate (cases ÷ tests) separates a real outbreak signal from a testing artifact and keeps decision-makers from overreacting to noise.
+**Why 7-day rolling averages, not daily numbers**
+Daily case counts are volatile: weekend reporting lags, data submission delays, and batch corrections all create artificial spikes and drops. Using 7-day rolling averages smooths out this noise and reveals the actual trend , so responses are calibrated to what’s really happening, not a one-day artifact.
+**Why connect hospitalizations to cases**
+Cases and hospitalizations measure different things. Cases reflect current spread; hospitalizations reflect where the system will be under pressure in 1–2 weeks. Tracking both together and understanding the lag between them lets health leaders anticipate capacity needs before a crisis hits, rather than reacting after.
+**Why surface week-over-week change alongside cumulative totals**
+Cumulative totals show scale; week-over-week change shows momentum. A region with 10,000 total cases but declining weekly growth is a very different situation from one with 5,000 cases and accelerating growth. Both numbers together tell a more complete story.
+
+What to include, how to calculate it and how to present it were the core analytical work. The automation made those choices scalable.
 
 ## The Problem
 Some critical data challenges healthcare organizations faced during the pandemic:
@@ -35,7 +49,7 @@ Python-based analytics system that addresses the entire workflow:
 - **Scalable Solutions**: Handles increasing data volumes without additional changes
 
 ## The Process
-### Notebooks Description
+### Notebooks
 These two main notebooks cover a different stage of the analysis pipeline.
 
 - [Data Cleaning and Integration](../notebooks/Data_Cleaning_and_Integration.ipynb)  
@@ -56,7 +70,7 @@ These two main notebooks cover a different stage of the analysis pipeline.
   Input: `covid_integrated_data.csv`
   Output: `COVID_Report_YYYYMMDD.xlsx` (multi-sheet report) + charts
 
-### Data Description
+### Data
 - [Raw Data](../data/raw/covid_raw_data.csv) (`covid_raw_data.csv`)   
   Synthetic daily time series mimicking COVID-19 pandemic data (2020-03-01 to 2024-01-31):  
   - `Date`: calendar date  
@@ -74,7 +88,7 @@ These two main notebooks cover a different stage of the analysis pipeline.
   - Cumulative totals
 
  
-## Outputs Description
+## Outputs
 - [Excel Report](../outputs/reports/COVID_Report_20251113.xlsx) (`COVID_Report_YYYYMMDD.xlsx`)  
   Summarizes daily and weekly key COVID-19 metrics and compares recent performance against prior weeks
   - Sheet 1: Summary (Key metrics at a glance)
@@ -88,6 +102,8 @@ These two main notebooks cover a different stage of the analysis pipeline.
   - **3_positivity_rate.png**: 7-day average COVID-19 test positivity rate with a 5% reference line recommended by the WHO, indicating concerning level of virus spread  
 
 ## Design Principles
+- Analytical clarity first:
+  Metric choices are documented and justified, not just implemented.
 - System-level thinking:
   The solution addresses the entire workflow, not just isolated pieces. From data ingestion to executive reporting, each component works together to deliver end-to-end value.
 - Reliability and maintainability:
@@ -103,7 +119,7 @@ These two main notebooks cover a different stage of the analysis pipeline.
 - OpenPyXL / XlsxWriter for Excel report automation
 
 
-👉 **[See this project in a product point of view](https://github.com/chia-chang/pm-portfolio/blob/main/covid-automation-product.md)** 
+👉 **[See this project in a product perspective](https://github.com/chia-chang/pm-portfolio/blob/main/covid-automation-product.md)** 
 
 
 made with ✨ + 🌿 + 💛 by Chia Chang
