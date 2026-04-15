@@ -1,4 +1,4 @@
-# COVID Analytics
+# COVID Analytics Automation
 Recreating the analytics system I built at IBM that cut COVID-19 reporting time by 80% (3–4 hours → 15 minutes) — while ensuring the right metrics reached the right decision-makers, every day.
 Note: This is a recreation of my work at IBM using synthetically generated data. No proprietary IBM information included.
 
